@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { filtrarPublicacionesPorCurso } from "../../services/api.jsx";
-import { PublicacionesForm } from "../../components/PublicacionesForm.jsx";
+import PostForm from "../../components/PostForm.jsx";
 
-export const PublicacionesPorCurso = () => {
+export const FilterByCourse = () => {
     const { curso } = useParams();
     const [publicaciones, setPublicaciones] = useState([]);
     const [cargando, setCargando] = useState(true);
@@ -29,7 +29,7 @@ export const PublicacionesPorCurso = () => {
             {cargando ? (
                 <p>Cargando publicaciones...</p>
             ) : (
-                <PublicacionesForm publicaciones={publicaciones} />
+                <PostForm publicaciones={publicaciones} />
             )}
         </div>
     );

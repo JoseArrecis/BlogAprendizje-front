@@ -1,11 +1,11 @@
 import React from "react";
 import './PostPage.css';
-import { PublicacionesLista } from "../../components";
+import { PostList } from "../../components";
 
 export const PostPage = () => {
     return (
         <div className="dashboard-container">
-            <PublicacionesLista />
+            <PostList />
         </div>
     );
 };

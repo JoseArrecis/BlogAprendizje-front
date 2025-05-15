@@ -1,9 +1,9 @@
 import React from "react";
 import { useFiltroPublicaciones } from "../shared/hooks/useFiltroPublicaciones.jsx";
-import { PublicacionesForm } from "./PostForm.jsx";
+import { PostForm } from "./PostForm.jsx";
 import "../pages/post/PostPage.css";
 
-export const PublicacionesLista = () => {
+export const PostList = () => {
     const { publicaciones, cargando } = useFiltroPublicaciones();
 
     return (
@@ -12,7 +12,7 @@ export const PublicacionesLista = () => {
             {cargando ? (
                 <p style={{ color: "white", textAlign: "center" }}>Cargando publicaciones...</p>
             ) : (
-                <PublicacionesForm publicaciones={publicaciones} />
+                <PostForm publicaciones={publicaciones} />
             )}
         </div>
     );

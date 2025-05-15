@@ -4,7 +4,7 @@ import { usePublicacionesID } from "../shared/hooks/usePublicacionesID";
 import { agregarComentario } from "../services/api.jsx";
 import "../pages/post/PostPage.css";
 
-export const PublicacionDetalle = () => {
+export const PostDetails = () => {
     const { id } = useParams();
     const { publicacion, comentarios, cargando, error, setComentarios } = usePublicacionesID(id);
     const [comentario, setComentario] = useState({ usuario: "", contenidoComentario: "" });

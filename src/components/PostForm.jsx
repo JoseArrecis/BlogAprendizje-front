@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const PublicacionesForm = ({ publicaciones }) => {
+export const PostForm = ({ publicaciones }) => {
     const navigate = useNavigate();
 
     if (!Array.isArray(publicaciones)) {
@@ -34,3 +34,5 @@ export const PublicacionesForm = ({ publicaciones }) => {
         </div>
     );
 };
+
+export default PostForm
