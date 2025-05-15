@@ -3,11 +3,11 @@ import {
     filtrarPublicacionesPorCurso,
     filtrarPublicacionesPorTitulo,
     filtrarPublicacionesPorFechas,
-    listarPublicaciones
+    getAllPosts
 } from "../../services";
 import { toast } from "react-hot-toast";
 
-export const useFiltroPublicaciones = () => {
+export const useFiltroPost = () => {
     const [publicaciones, setPublicaciones] = useState([]);
     const [cargando, setCargando] = useState(false);
 
@@ -15,7 +15,7 @@ export const useFiltroPublicaciones = () => {
         const cargarPublicaciones = async () => {
             setCargando(true);
             try {
-                const pubs = await listarPublicaciones();
+                const pubs = await getAllPosts();
                 setPublicaciones(pubs);
             } catch (err) {
                 toast.error("Error al cargar publicaciones: " + err.message);

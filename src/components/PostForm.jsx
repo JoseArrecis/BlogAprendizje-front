@@ -17,15 +17,16 @@ export const PostForm = ({ publicaciones }) => {
                     onClick={() => navigate(`/publicacion/${pub._id}`)} 
                     style={{ cursor: "pointer" }}
                 >
-                    <h3 className="publicacion-title">{pub.tituloPublicacion}</h3>
-                    <p className="publicacion-content">{pub.descripcionPublicacion}</p>
-                    <p><strong>Curso:</strong> {pub.cursoPublicacion}</p>
-                    <p><strong>Fecha:</strong> {new Date(pub.fechaPublicacion).toLocaleDateString()}</p>
+                    <h3 className="publicacion-title">{pub.title}</h3>
+                    <p className="publicacion-content">{pub.description}</p>
+                    <p><strong>course:</strong> {pub.course}</p>
+                    <p><strong>Fecha:</strong> {new Date(pub.createdAt).toLocaleDateString()}</p>
                     <strong>Comentarios:</strong>
+
                     <ul>
-                        {(Array.isArray(pub.comentarios) ? pub.comentarios : []).map((comentario, index) => (
-                            <li key={comentario._id || index}>
-                                <strong>{comentario.usuario}:</strong> {comentario.contenidoComentario}
+                        {(Array.isArray(pub.comments) ? pub.comments : []).map((comments, index) => (
+                            <li key={comments._id || index}>
+                                <strong>{comments.user}:</strong> {comments.content}
                             </li>
                         ))}
                     </ul>

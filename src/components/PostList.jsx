@@ -1,10 +1,10 @@
 import React from "react";
-import { useFiltroPublicaciones } from "../shared/hooks/useFiltroPublicaciones.jsx";
+import { useFiltroPost } from "../shared/hooks/useFiltroPost";
 import { PostForm } from "./PostForm.jsx";
 import "../pages/post/PostPage.css";
 
 export const PostList = () => {
-    const { publicaciones, cargando } = useFiltroPublicaciones();
+    const { publicaciones, cargando } = useFiltroPost();
 
     return (
         <div className="publicaciones-container">

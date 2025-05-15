@@ -1,40 +1,39 @@
 import axios from "axios";
 
-const API = axios.create({
-    baseURL: "http://localhost:3626/",
+const api = axios.create({
+    baseURL: "http://localhost:2656/v1",
     timeout: 5000,
-    httpsAgent: false,
 });
 
-export { API };
+export { api };
 
-export const listarPublicaciones = async () => {
-    const res = await API.get("/Publicacion/listarPublicaciones");
-    return res.data.publicaciones;
-};
+export const getAllPosts = async () => {
+    const res = await api.get("/post/getAll");
+    return res.data.posts;
+}
 
-export const listarPublicacionPorID = async (id) => {
-    const res = await API.get(`/Publicacion/listarPublicaciones/${id}`); 
-    return res.data.publicacion;
-};
+export const getPostById = async (id) => {
+    const res = await api.get(`/post/${id}`); 
+    return res.data.post;
+}
 
 export const agregarComentario = async (comentario) => {
-    const res = await API.post('/Comentario/agregarComentarios', comentario); 
+    const res = await api.post('/Comentario/agregarComentarios', comentario); 
     return res.data.comentario;
 };
 
 export const filtrarPublicacionesPorCurso = async (curso) => {
-    const res = await API.get(`/Publicacion/filtrarPorCurso?curso=${encodeURIComponent(curso)}`);
+    const res = await api.get(`/Publicacion/filtrarPorCurso?curso=${encodeURIComponent(curso)}`);
     return res.data.publicaciones;
 };
 
 export const filtrarPublicacionesPorTitulo = async (titulo) => {
-    const res = await API.get(`/Publicacion/filtrarPorTitulo?titulo=${encodeURIComponent(titulo)}`);
+    const res = await api.get(`/Publicacion/filtrarPorTitulo?titulo=${encodeURIComponent(titulo)}`);
     return res.data.publicaciones;
 };
 
 export const filtrarPublicacionesPorFechas = async (fechaInicio, fechaFin) => {
-    const res = await API.get(`/Publicacion/filtrarPorFechas?fechaInicio=${encodeURIComponent(fechaInicio)}&fechaFin=${encodeURIComponent(fechaFin)}`);
+    const res = await api.get(`/Publicacion/filtrarPorFechas?fechaInicio=${encodeURIComponent(fechaInicio)}&fechaFin=${encodeURIComponent(fechaFin)}`);
     return res.data.publicaciones.sort(
         (a, b) => new Date(b.fechaPublicacion) - new Date(a.fechaPublicacion)
     );

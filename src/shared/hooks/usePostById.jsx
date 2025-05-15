@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { listarPublicacionPorID } from "../../services";
+import { getPostById } from "../../services/api";
 import { toast } from "react-hot-toast";
 
-export const usePublicacionesID = (id) => {
-    const [publicacion, setPublicacion] = useState(null);
-    const [comentarios, setComentarios] = useState([]);
+export const usePostById = (id) => {
+    const [post, setPost] = useState(null);
+    const [comment, setComment] = useState([]);
     const [cargando, setCargando] = useState(false);
     const [error, setError] = useState(null);
 
     const obtenerPublicacion = async () => {
         setCargando(true);
         try {
-            const publicacionData = await listarPublicacionPorID(id);
-            setPublicacion(publicacionData);
-            setComentarios(publicacionData.comentarios);
+            const publicacionData = await getPostById(id);
+            setPost(publicacionData);
+            setComment(publicacionData.comment);
             setCargando(false);
         } catch (error) {
             setCargando(false);
@@ -33,8 +33,8 @@ export const usePublicacionesID = (id) => {
     }, [id]);
 
     return {
-        publicacion,
-        comentarios,
+        post,
+        comment,
         cargando,
         error,
         setComentarios,

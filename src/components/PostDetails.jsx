@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { usePublicacionesID } from "../shared/hooks/usePublicacionesID";
+import { usePostById } from "../shared/hooks/usePostById.jsx";
 import { agregarComentario } from "../services/api.jsx";
 import "../pages/post/PostPage.css";
 
 export const PostDetails = () => {
     const { id } = useParams();
-    const { publicacion, comentarios, cargando, error, setComentarios } = usePublicacionesID(id);
+    const { publicacion, comentarios, cargando, error, setComentarios } = usePostById(id);
     const [comentario, setComentario] = useState({ usuario: "", contenidoComentario: "" });
     const [formError, setFormError] = useState("");
 

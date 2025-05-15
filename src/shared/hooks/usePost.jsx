@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { listarPublicaciones as listarPublicacionesService } from "../../services";
+import { getAllPosts as getAllPostsService } from "../../services";
 import { toast } from "react-hot-toast"
 
-export const usePublicaciones = () => {
-    const [publicaciones, setPublicaciones] = useState([]);
+export const usePost = () => {
+    const [posts, setPublicaciones] = useState([]);
     const [cargando, setCargando] = useState(false);
 
-    const listarPublicaciones = async () => {
+    const getAllPosts = async () => {
         setCargando(true);
         try {
-            const publicaciones = await listarPublicacionesService();
-            setPublicaciones(publicaciones);
+            const publicaciones = await getAllPostsService();
+            setPublicaciones(posts);
             setCargando(false);
         } catch (err) {
             toast.error("Error al cargar las publicaciones" + err.message);
@@ -19,11 +19,11 @@ export const usePublicaciones = () => {
     }
 
     useEffect(() => {
-        listarPublicaciones();
+        getAllPosts();
     }, []);
 
     return {
-        publicaciones,
+        posts,
         cargando,
     }
 }

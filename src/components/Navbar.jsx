@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import '../pages/post/Navbar.css';
-import { useFiltroPublicaciones } from "../shared/hooks/useFiltroPublicaciones";
+import { useFiltroPost } from "../shared/hooks/useFiltroPost.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
     const {
         limpiarFiltros
-    } = useFiltroPublicaciones();
+    } = useFiltroPost();
 
-    const [curso, setCurso] = useState("");
-    const [titulo, setTitulo] = useState("");
+    const [course, setCurso] = useState("");
+    const [title, setTitulo] = useState("");
     const [fechaInicio, setFechaInicio] = useState("");
     const [fechaFin, setFechaFin] = useState("");
     const navigate = useNavigate(); 
 
     const handleFiltrarCurso = (e) => {
         e.preventDefault();
-        if (curso.trim()) {
-            navigate(`/curso/${encodeURIComponent(curso)}`); 
+        if (course.trim()) {
+            navigate(`/course/${encodeURIComponent(course)}`); 
         }
     };
 
     const handleFiltrarTitulo = (e) => {
         e.preventDefault();
-        if (titulo.trim()) {
-            navigate(`/titulo/${encodeURIComponent(titulo)}`);
+        if (title.trim()) {
+            navigate(`/title/${encodeURIComponent(title)}`);
         }
     };
 
@@ -43,7 +43,7 @@ export const Navbar = () => {
                     <input
                         type="text"
                         placeholder="Por curso"
-                        value={curso}
+                        value={course}
                         onChange={(e) => setCurso(e.target.value)}
                     />
                     <button type="submit">Filtrar</button>
@@ -52,7 +52,7 @@ export const Navbar = () => {
                     <input
                         type="text"
                         placeholder="Por título"
-                        value={titulo}
+                        value={title}
                         onChange={(e) => setTitulo(e.target.value)}
                     />
                     <button type="submit">Filtrar</button>
