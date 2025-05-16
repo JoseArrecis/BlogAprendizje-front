@@ -10,16 +10,16 @@ export { api };
 export const getAllPosts = async () => {
     const res = await api.get("/post/getAll");
     return res.data.posts;
-}
+};
 
 export const getPostById = async (id) => {
     const res = await api.get(`/post/${id}`); 
     return res.data.post;
-}
+};
 
-export const agregarComentario = async (comentario) => {
-    const res = await api.post('/Comentario/agregarComentarios', comentario); 
-    return res.data.comentario;
+export const addComment = async (comentario) => {
+    const res = await api.post('/comment', comentario); 
+    return res.data.comment;
 };
 
 export const filtrarPublicacionesPorCurso = async (curso) => {

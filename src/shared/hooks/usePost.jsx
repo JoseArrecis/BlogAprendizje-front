@@ -9,7 +9,7 @@ export const usePost = () => {
     const getAllPosts = async () => {
         setCargando(true);
         try {
-            const publicaciones = await getAllPostsService();
+            const posts = await getAllPostsService();
             setPublicaciones(posts);
             setCargando(false);
         } catch (err) {

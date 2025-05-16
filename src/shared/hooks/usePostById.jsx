@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 
 export const usePostById = (id) => {
     const [post, setPost] = useState(null);
-    const [comment, setComment] = useState([]);
+    const [comments, setComments] = useState([]);
     const [cargando, setCargando] = useState(false);
     const [error, setError] = useState(null);
 
@@ -13,7 +13,7 @@ export const usePostById = (id) => {
         try {
             const publicacionData = await getPostById(id);
             setPost(publicacionData);
-            setComment(publicacionData.comment);
+            setComments(publicacionData.comments || []);
             setCargando(false);
         } catch (error) {
             setCargando(false);
@@ -34,9 +34,9 @@ export const usePostById = (id) => {
 
     return {
         post,
-        comment,
+        comments,
         cargando,
         error,
-        setComentarios,
+        setComments,
     };
 };

@@ -61,7 +61,7 @@ export const useFiltroPost = () => {
     const limpiarFiltros = async () => {
         setCargando(true);
         try {
-            const pubs = await listarPublicaciones();
+            const pubs = await getAllPosts();
             setPublicaciones(pubs);
         } catch (err) {
             toast.error("Error al cargar publicaciones" + err.message);

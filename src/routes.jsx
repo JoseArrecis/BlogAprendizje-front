@@ -8,7 +8,7 @@ import { FilterByDate } from "./pages/post/FilterByDate.jsx";
 export const routes = [
     { path: "/", element: <PostPage /> },
     { path: "/publicacion/:id", element: <PostDetails /> },
-    { path: "/curso/:curso", element: <FilterByCourse /> },
-    { path: "/titulo/:titulo", element: <FilterByTitle /> },
-    { path: "/fechas/:fechaInicio/:fechaFin", element: <FilterByDate /> },
+    { path: "/course/:curso", element: <FilterByCourse /> },
+    { path: "/title/:titulo", element: <FilterByTitle /> },
+    { path: "/date/:fechaInicio/:fechaFin", element: <FilterByDate /> },
 ];
