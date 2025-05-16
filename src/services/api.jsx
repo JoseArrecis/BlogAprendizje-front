@@ -22,7 +22,7 @@ export const addComment = async (comentario) => {
     return res.data.comment;
 };
 
-export const filtrarPublicacionesPorCurso = async (curso) => {
+export const filterByCourse = async (curso) => {
     const res = await api.get(`/Publicacion/filtrarPorCurso?curso=${encodeURIComponent(curso)}`);
     return res.data.publicaciones;
 };

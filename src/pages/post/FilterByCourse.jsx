@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { filtrarPublicacionesPorCurso } from "../../services/api.jsx";
+import { filterByCourse } from "../../services/api.jsx";
 import PostForm from "../../components/PostForm.jsx";
 
 export const FilterByCourse = () => {
-    const { curso } = useParams();
+    const { course } = useParams();
     const [publicaciones, setPublicaciones] = useState([]);
     const [cargando, setCargando] = useState(true);
 
@@ -12,7 +12,7 @@ export const FilterByCourse = () => {
         const fetchData = async () => {
             setCargando(true);
             try {
-                const pubs = await filtrarPublicacionesPorCurso(curso);
+                const pubs = await filterByCourse(course);
                 setPublicaciones(pubs);
             } catch (err) {
                 console.error("Error al filtrar publicaciones por curso:", err);
@@ -21,11 +21,11 @@ export const FilterByCourse = () => {
             setCargando(false);
         };
         fetchData();
-    }, [curso]);
+    }, [course]);
 
     return (
         <div className="dashboard-container">
-            <h2>Publicaciones del curso: {curso}</h2>
+            <h2>Publicaciones del curso: {course}</h2>
             {cargando ? (
                 <p>Cargando publicaciones...</p>
             ) : (

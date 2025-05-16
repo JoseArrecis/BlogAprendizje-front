@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {
-    filtrarPublicacionesPorCurso,
+    filterByCourse,
     filtrarPublicacionesPorTitulo,
     filtrarPublicacionesPorFechas,
     getAllPosts
@@ -28,7 +28,7 @@ export const useFiltroPost = () => {
     const filtrarPorCurso = async (curso) => {
         setCargando(true);
         try {
-            const pubs = await filtrarPublicacionesPorCurso(curso);
+            const pubs = await filterByCourse(curso);
             setPublicaciones(pubs);
         } catch (err) {
             toast.error("Error al filtrar por curso" + err.message);
@@ -72,7 +72,7 @@ export const useFiltroPost = () => {
     return {
         publicaciones,
         cargando,
-        filtrarPorCurso,
+        filterByCourse,
         filtrarPorTitulo,
         filtrarPorFechas,
         limpiarFiltros
