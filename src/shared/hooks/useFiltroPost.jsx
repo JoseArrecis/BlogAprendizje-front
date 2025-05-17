@@ -31,18 +31,18 @@ export const useFiltroPost = () => {
             const pubs = await filterByCourse(curso);
             setPublicaciones(pubs);
         } catch (err) {
-            toast.error("Error al filtrar por curso" + err.message);
+            toast.error("Error al filtrar por curso: " + err.message);
         }
         setCargando(false);
     };
 
-    const filterByTitle = async (titulo) => {
+    const filtrarPorTitulo = async (titulo) => {
         setCargando(true);
         try {
             const pubs = await filterByTitle(titulo);
             setPublicaciones(pubs);
         } catch (err) {
-            toast.error("Error al filtrar por título" + err.message);
+            toast.error("Error al filtrar por título: " + err.message);
         }
         setCargando(false);
     };
@@ -53,7 +53,7 @@ export const useFiltroPost = () => {
             const pubs = await filtrarPublicacionesPorFechas(fechaInicio, fechaFin);
             setPublicaciones(pubs);
         } catch (err) {
-            toast.error("Error al filtrar por fechas" + err.message);
+            toast.error("Error al filtrar por fechas: " + err.message);
         }
         setCargando(false);
     };
@@ -64,7 +64,7 @@ export const useFiltroPost = () => {
             const pubs = await getAllPosts();
             setPublicaciones(pubs);
         } catch (err) {
-            toast.error("Error al cargar publicaciones" + err.message);
+            toast.error("Error al cargar publicaciones: " + err.message);
         }
         setCargando(false);
     };
