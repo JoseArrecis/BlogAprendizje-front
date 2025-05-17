@@ -15,21 +15,23 @@ export const getAllPosts = async () => {
 export const getPostById = async (id) => {
     const res = await api.get(`/post/${id}`); 
     return res.data.post;
-};
+}
 
 export const addComment = async (comentario) => {
-    const res = await api.post('/comment', comentario); 
+    const res = await api.post('/comment/', comentario); 
     return res.data.comment;
 };
 
 export const filterByCourse = async (curso) => {
-    const res = await api.get(`/Publicacion/filtrarPorCurso?curso=${encodeURIComponent(curso)}`);
-    return res.data.publicaciones;
+    const res = await api.get(`/post/filter/course/${curso}`);
+    console.log("DEBUG: respuesta completa del backend =>", res.data);
+    return res.data.Posts || [];
 };
 
-export const filtrarPublicacionesPorTitulo = async (titulo) => {
-    const res = await api.get(`/Publicacion/filtrarPorTitulo?titulo=${encodeURIComponent(titulo)}`);
-    return res.data.publicaciones;
+export const filterByTitle = async (titulo) => {
+    const res = await api.get(`/post/filter/title/${encodeURIComponent(titulo)}`);
+    console.log("DEBUG filtro por título =>", res.data);
+    return res.data.Posts || [];
 };
 
 export const filtrarPublicacionesPorFechas = async (fechaInicio, fechaFin) => {

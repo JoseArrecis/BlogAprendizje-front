@@ -4,7 +4,7 @@ import { filterByCourse } from "../../services/api.jsx";
 import PostForm from "../../components/PostForm.jsx";
 
 export const FilterByCourse = () => {
-    const { course } = useParams();
+    const { course: curso } = useParams()
     const [publicaciones, setPublicaciones] = useState([]);
     const [cargando, setCargando] = useState(true);
 
@@ -12,7 +12,8 @@ export const FilterByCourse = () => {
         const fetchData = async () => {
             setCargando(true);
             try {
-                const pubs = await filterByCourse(course);
+                const pubs = await filterByCourse(curso);
+                console.log("Publicaciones recibidas:", pubs);
                 setPublicaciones(pubs);
             } catch (err) {
                 console.error("Error al filtrar publicaciones por curso:", err);
@@ -21,11 +22,11 @@ export const FilterByCourse = () => {
             setCargando(false);
         };
         fetchData();
-    }, [course]);
+    }, [curso]);
 
     return (
         <div className="dashboard-container">
-            <h2>Publicaciones del curso: {course}</h2>
+            <h2>Publicaciones del curso: {curso}</h2>
             {cargando ? (
                 <p>Cargando publicaciones...</p>
             ) : (
