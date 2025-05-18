@@ -8,8 +8,8 @@ const api = axios.create({
 export { api };
 
 export const getAllPosts = async () => {
-    const res = await api.get("/post/getAll");
-    return res.data.posts;
+  const res = await api.get("http://localhost:2656/v1/post/getAll");
+  return res.data.posts; 
 };
 
 export const getPostById = async (id) => {
@@ -18,8 +18,10 @@ export const getPostById = async (id) => {
 }
 
 export const addComment = async (comentario) => {
-    const res = await api.post('/comment/', comentario); 
-    return res.data.comment;
+    console.log("Enviando comentario:", comentario);
+    const res = await api.post('/comment/', comentario);
+    console.log("Respuesta backend al agregar comentario:", res.data);
+    return res.data.Comment || null
 };
 
 export const filterByCourse = async (curso) => {

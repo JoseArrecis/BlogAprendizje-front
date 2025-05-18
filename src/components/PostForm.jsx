@@ -14,27 +14,36 @@ export const PostForm = ({ publicaciones }) => {
 
   return (
     <div className="publicaciones-grid">
-      {publicaciones.map((pub) => (
-        <div
-          key={pub._id}
-          className="publicacion-card"
-          onClick={() => navigate(`/publicacion/${pub._id}`)}
-          style={{ cursor: "pointer" }}
-        >
-          <h3 className="publicacion-title">{pub.title}</h3>
-          <p className="publicacion-content">{pub.description}</p>
-          <p><strong>course:</strong> {pub.course}</p>
-          <p><strong>Fecha:</strong> {new Date(pub.createdAt).toLocaleDateString()}</p>
-          <strong>Comentarios:</strong>
-          <ul>
-            {(Array.isArray(pub.comments) ? pub.comments : []).map((comment, index) => (
-              <li key={comment._id || index}>
-                <strong>{comment.user}:</strong> {comment.content}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {publicaciones.map((pub) => {
+        console.log("🔍 Publicación completa:", pub); // 👈 Asegúrate de que comments tiene content
+
+        return (
+          <div
+            key={pub._id}
+            className="publicacion-card"
+            onClick={() => navigate(`/publicacion/${pub._id}`)}
+            style={{ cursor: "pointer" }}
+          >
+            <h3 className="publicacion-title">{pub.title}</h3>
+            <p className="publicacion-content">{pub.description}</p>
+            <p><strong>Curso:</strong> {pub.course}</p>
+            <p><strong>Fecha:</strong> {new Date(pub.createdAt).toLocaleDateString()}</p>
+
+            <strong>Comentarios:</strong>
+            <ul style={{ marginTop: "8px", paddingLeft: "20px", color: "white" }}>
+              {(Array.isArray(pub.comments) && pub.comments.length > 0) ? (
+                pub.comments.map((comment, index) => (
+                  <li key={comment._id || index} style={{ marginBottom: "4px", color: "black" }}>
+                    <strong>{comment.user}:</strong> {comment.content}
+                  </li>
+                ))
+              ) : (
+                <li style={{ fontStyle: "italic" }}>Sin comentarios</li>
+              )}
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 };

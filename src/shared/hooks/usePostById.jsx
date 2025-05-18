@@ -12,23 +12,24 @@ export const usePostById = (id) => {
         setCargando(true);
         try {
             const publicacionData = await getPostById(id)
+
             setPost(publicacionData);
             setComments(publicacionData.comments || [])
-            setCargando(false)
+            setCargando(false);
         } catch (error) {
-            setCargando(false)
+            setCargando(false);
             if (error.response && error.response.status === 404) {
-                setError("La publicación no fue encontrada.")
+                setError("La publicación no fue encontrada.");
             } else {
-                setError("Ocurrió un error al cargar la publicación.")
+                setError("Ocurrió un error al cargar la publicación.");
             }
-            toast.error("Error al cargar la publicación.")
+            toast.error("Error al cargar la publicación.");
         }
-    }
+    };
 
     useEffect(() => {
         if (id) {
-            obtenerPublicacion()
+            obtenerPublicacion();
         }
     }, [id]);
 

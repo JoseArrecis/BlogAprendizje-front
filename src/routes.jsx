@@ -11,4 +11,4 @@ export const routes = [
     { path: "/course/:course", element: <FilterByCourse /> },
     { path: "/title/:titulo", element: <FilterByTitle /> },
     { path: "/date/:fechaInicio/:fechaFin", element: <FilterByDate /> },
-];
+]

@@ -3,10 +3,10 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     background-attachment: fixed;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    color: #111827;
 }
 
 /* Tarjetas de publicaciones */
@@ -19,46 +19,46 @@ html, body {
 }
 
 .publicacion-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 16px;
     padding: 28px 24px;
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.25);
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.1);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    color: #2c3e50;
+    color: #111827;
     min-width: 320px;
     max-width: 420px;
     font-size: 1.1rem;
-    border: 1px solid #dde3f0;
+    border: 1px solid #d1d5db;
 }
 
 .publicacion-card:hover {
     transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 14px 30px rgba(118, 75, 162, 0.35);
+    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.2);
 }
 
 .publicacion-title {
     font-size: 1.7rem;
     font-weight: 700;
-    color: #4a4a4a;
+    color: #111827;
     margin-bottom: 12px;
 }
 
 .publicacion-content {
     font-size: 1rem;
-    color: #555;
+    color: #4b5563;
     margin-bottom: 14px;
     line-height: 1.5;
 }
 
 .publicacion-card strong {
-    color: #4a4a4a;
+    color: #111827;
     font-weight: 600;
 }
 
 .publicacion-card ul {
     margin-left: 1.3em;
     padding: 0;
-    color: #555;
+    color: #4b5563;
 }
 
 .publicacion-card li {
@@ -68,12 +68,12 @@ html, body {
 
 /* Título general */
 .publicaciones-title {
-    color: #fff;
+    color: #111827;
     font-size: 2.4rem;
     font-weight: 700;
     margin-left: 32px;
     margin-top: 0;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor principal */
@@ -95,7 +95,7 @@ html, body {
 
 .comentario-form label {
     font-size: 1rem;
-    color: #4a4a4a;
+    color: #111827;
     font-weight: 600;
     margin-bottom: 4px;
     display: flex;
@@ -105,7 +105,7 @@ html, body {
 
 .comentario-form input {
     padding: 10px 12px;
-    border: 1.5px solid #667eea;
+    border: 1.5px solid #d1d5db;
     border-radius: 6px;
     width: 100%;
     font-size: 1rem;
@@ -115,26 +115,26 @@ html, body {
 }
 
 .comentario-form input:focus {
-    border-color: #764ba2;
+    border-color: #6b7280;
     outline: none;
 }
 
 .comentario-form button {
     padding: 12px 0;
     font-size: 1rem;
-    background: #764ba2;
-    color: #fff;
+    background: #6b7280;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
     transition: background 0.25s ease;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(118, 75, 162, 0.35);
+    box-shadow: 0 4px 12px rgba(55, 65, 81, 0.35);
 }
 
 .comentario-form button:hover {
-    background: #5a3583;
+    background: #374151;
 }
 
 /* Grid de comentarios */
@@ -149,32 +149,32 @@ html, body {
 
 /* Tarjeta de comentario */
 .comentario-card {
-    background: #f9f9ff;
+    background: #f8fafc;
     border-radius: 16px;
     padding: 20px 18px;
-    box-shadow: 0 6px 14px rgba(118, 75, 162, 0.15);
-    color: #444;
+    box-shadow: 0 6px 14px rgba(55, 65, 81, 0.15);
+    color: #4b5563;
     min-width: 280px;
     max-width: 400px;
     font-size: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #dddfff;
+    border: 1px solid #d1d5db;
 }
 
 .comentario-card:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 12px 28px rgba(118, 75, 162, 0.3);
+    box-shadow: 0 12px 28px rgba(55, 65, 81, 0.3);
 }
 
 .comentario-usuario {
     font-weight: 700;
-    color: #667eea;
+    color: #6b7280;
     margin-bottom: 8px;
 }
 
 .comentario-fecha {
     font-size: 0.88em;
-    color: #999;
+    color: #9ca3af;
     margin-bottom: 6px;
 }
 
@@ -183,17 +183,17 @@ html, body {
     margin: 40px auto 28px auto;
     max-width: 600px;
     text-align: center;
-    background: #fff;
+    background: #ffffff;
     border-radius: 20px;
     padding: 36px 32px;
-    box-shadow: 0 10px 36px rgba(102, 126, 234, 0.25);
-    color: #333;
-    border: 1px solid #dde3f0;
+    box-shadow: 0 10px 36px rgba(17, 24, 39, 0.25);
+    color: #111827;
+    border: 1px solid #d1d5db;
 }
 
 .detalle-publicacion-card h2 {
     margin-bottom: 14px;
-    color: #4a4a4a;
+    color: #111827;
 }
 
 .detalle-publicacion-card p {
@@ -209,7 +209,7 @@ html, body {
 
 .detalle-info p {
     margin-bottom: 12px;
-    color: #555;
+    color: #4b5563;
     font-size: 1.05rem;
 }
 
@@ -217,9 +217,9 @@ html, body {
 .comentario-form-card {
     margin: 0 auto 28px auto;
     max-width: 360px;
-    background: #f7f8ff;
+    background: #f8fafc;
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(118, 75, 162, 0.15);
+    box-shadow: 0 6px 18px rgba(55, 65, 81, 0.15);
     padding: 20px 18px;
-    border: 1px solid #dde3f0;
+    border: 1px solid #d1d5db;
 }

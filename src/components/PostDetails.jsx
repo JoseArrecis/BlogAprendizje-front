@@ -28,18 +28,26 @@ export const PostDetails = () => {
 
         try {
             const comentario = {
-                postId: id,
+                post: id, 
                 user: newComment.user,
                 content: newComment.content,
             };
 
+            console.log("Comentario a enviar:", comentario);
+
             const nuevoComentario = await addComment(comentario);
 
+            console.log("Comentario recibido:", nuevoComentario);
+
+            if (!nuevoComentario || !nuevoComentario._id) {
+                throw new Error("El comentario devuelto es inválido o no tiene _id");
+            }
+
             const comentarioParaLista = {
-                _id: nuevoComentario._id || Math.random().toString(),
+                _id: nuevoComentario._id,
                 user: nuevoComentario.user,
                 content: nuevoComentario.content,
-                createdAt: nuevoComentario.createdAt,
+                date: nuevoComentario.date,
             };
 
             setComments((prev) => [...prev, comentarioParaLista]);
@@ -70,10 +78,10 @@ export const PostDetails = () => {
                 {comments && comments.length > 0 ? (
                     comments.map((comment) => (
                         <div className="comentario-card" key={comment._id || Math.random()}>
-                            <div className="comentario-usuario">{comment.user}</div>
-                            {comment.createdAt && (
+                            <div className="comentario-usuario">{comment.user || "Anónimo"}</div>
+                            {comment.date && (
                                 <div className="comentario-fecha">
-                                    Fecha: {new Date(comment.createdAt).toLocaleString()}
+                                    Fecha: {new Date(comment.date).toLocaleString()}
                                 </div>
                             )}
                             <div>{comment.content}</div>
