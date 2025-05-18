@@ -15,7 +15,7 @@ export const PostForm = ({ publicaciones }) => {
   return (
     <div className="publicaciones-grid">
       {publicaciones.map((pub) => {
-        console.log("🔍 Publicación completa:", pub); // 👈 Asegúrate de que comments tiene content
+        console.log("🔍 Publicación completa:", pub);
 
         return (
           <div
